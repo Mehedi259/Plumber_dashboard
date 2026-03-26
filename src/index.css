@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-surface-subtle text-ink font-sans text-sm;
+    margin: 0;
+    padding: 0;
+  }
+
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-border rounded-pill;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-ink-ghost;
+  }
+}
+
+@layer components {
+  /* ── Sidebar nav button ── */
+  .nav-btn {
+    @apply relative flex items-center gap-3 w-full h-10 px-3 rounded-btn
+           text-sidebar-text text-sm font-normal
+           transition-colors duration-150 cursor-pointer select-none;
+  }
+  .nav-btn:hover {
+    @apply bg-sidebar-hover text-white;
+  }
+  .nav-btn.active {
+    @apply bg-brand text-white shadow-nav;
+  }
+  .nav-btn .nav-icon {
+    @apply shrink-0 w-5 h-5;
+  }
+
+  /* ── Card ── */
+  .card {
+    @apply bg-surface rounded-card border border-border shadow-card;
+  }
+
+  /* ── Status badge ── */
+  .badge {
+    @apply inline-flex items-center px-2 py-0.5 rounded-pill text-xs font-medium;
+  }
+  .badge-blue   { @apply bg-status-blue-bg   text-status-blue   border border-status-blue-border; }
+  .badge-green  { @apply bg-status-green-bg  text-status-green  border border-status-green-border; }
+  .badge-red    { @apply bg-status-red-bg    text-status-red    border border-status-red-border; }
+  .badge-orange { @apply bg-status-orange-bg text-status-orange; }
+  .badge-gray   { @apply bg-status-gray-bg   text-status-gray   border border-status-gray-border; }
+  .badge-yellow { @apply bg-yellow-50        text-status-yellow border border-yellow-200; }
+}
